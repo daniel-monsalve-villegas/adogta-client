@@ -1,14 +1,14 @@
-import FoundationsImage from "../components/FoundationsImage";
-import customAxios from "../axios";
-import { useState, useEffect } from "react";
-import Home from "../pages/Home";
+import FoundationsImage from '../components/FoundationsImage';
+import customAxios from '../axios';
+import { useState, useEffect } from 'react';
+import Home from '../pages/Home';
 
 const FoundationsMenu = () => {
   const [foundations, setFoundations] = useState([]);
   const [disablePrev, setDisablePrev] = useState(true);
   const [disableNext, setDisableNext] = useState(false);
   const [page, setPage] = useState(1);
-  const route = customAxios.defaults.baseURL + "/foundations?page=";
+  const route = customAxios.defaults.baseURL + '/foundations?page=';
   const foundationsPerPage = 10;
 
   function NextPage(route, page) {

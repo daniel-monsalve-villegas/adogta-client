@@ -1,15 +1,15 @@
-import { useState, useEffect } from "react";
-import { FaBars } from "react-icons/fa";
-import { MdPets } from "react-icons/md";
-import profileDog from "../assets/images/DogProfile.svg";
-import { Link } from "react-router-dom";
-import { Link as LinkScroll } from "react-scroll";
-import { animateScroll as ScrollToTop } from "react-scroll";
-import "../assets/styles/Navbar.css";
-import { useDispatch, useSelector } from "react-redux";
-import { logOut } from "../store/actionCreators";
-import { AUTHENTICATED } from "../store/actions";
-import history from "../history";
+import { useState, useEffect } from 'react';
+import { FaBars } from 'react-icons/fa';
+import { MdPets } from 'react-icons/md';
+import profileDog from '../assets/images/DogProfile.svg';
+import { Link } from 'react-router-dom';
+import { Link as LinkScroll } from 'react-scroll';
+import { animateScroll as ScrollToTop } from 'react-scroll';
+import '../assets/styles/Navbar.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { logOut } from '../store/actionCreators';
+import { AUTHENTICATED } from '../store/actions';
+import history from '../history';
 
 function Navbar({ toggle }) {
   const dispatch = useDispatch();
@@ -23,13 +23,13 @@ function Navbar({ toggle }) {
 
   const { photoUrl, name, _id, role } = recentUser;
 
-  const [isMobile, setIsMobile] = useState("");
+  const [isMobile, setIsMobile] = useState('');
 
   const [location, setLocation] = useState(history.location.pathname);
 
   useEffect(() => {
     window.addEventListener(
-      "resize",
+      'resize',
       () => {
         const ismobile = window.innerWidth < 768;
         if (ismobile !== isMobile) setIsMobile(ismobile);
@@ -74,7 +74,7 @@ function Navbar({ toggle }) {
               <FaBars onClick={toggle} />
             </div>
           )}
-          {location === "/" && (
+          {location === '/' && (
             <ul className="navBar__container--navMenu">
               <li
                 className="navBar__container--navItem"
@@ -110,8 +110,8 @@ function Navbar({ toggle }) {
             <li
               className={
                 status === AUTHENTICATED
-                  ? "navBar__container--navMenu2--hide"
-                  : "navBar__container--navItem2"
+                  ? 'navBar__container--navMenu2--hide'
+                  : 'navBar__container--navItem2'
               }
             >
               <Link
@@ -121,12 +121,12 @@ function Navbar({ toggle }) {
               >
                 LOG IN
               </Link>
-            </li>{" "}
+            </li>{' '}
             <li
               className={
-                status === AUTHENTICATED && role === "foundation"
-                  ? "navBar__container--navItem2"
-                  : "navBar__container--navMenu2--hide"
+                status === AUTHENTICATED && role === 'foundation'
+                  ? 'navBar__container--navItem2'
+                  : 'navBar__container--navMenu2--hide'
               }
             >
               <Link
@@ -139,9 +139,9 @@ function Navbar({ toggle }) {
             </li>
             <li
               className={
-                status === AUTHENTICATED && role === "admin"
-                  ? "navBar__container--navItem2"
-                  : "navBar__container--navMenu2--hide"
+                status === AUTHENTICATED && role === 'admin'
+                  ? 'navBar__container--navItem2'
+                  : 'navBar__container--navMenu2--hide'
               }
             >
               <Link className="navBar__container--navLinks2" to="/admin">
@@ -150,9 +150,9 @@ function Navbar({ toggle }) {
             </li>
             <li
               className={
-                status === AUTHENTICATED && role === "user"
-                  ? "navBar__container--navItem2"
-                  : "navBar__container--navMenu2--hide"
+                status === AUTHENTICATED && role === 'user'
+                  ? 'navBar__container--navItem2'
+                  : 'navBar__container--navMenu2--hide'
               }
             >
               <Link
@@ -165,9 +165,9 @@ function Navbar({ toggle }) {
             </li>
             <li
               className={
-                status === AUTHENTICATED && role === "admin"
-                  ? "navBar__container--navItem2"
-                  : "navBar__container--navMenu2--hide"
+                status === AUTHENTICATED && role === 'admin'
+                  ? 'navBar__container--navItem2'
+                  : 'navBar__container--navMenu2--hide'
               }
             >
               <Link className="navBar__container--navLinks2" to="/admin/users">
@@ -177,8 +177,8 @@ function Navbar({ toggle }) {
             <li
               className={
                 status === AUTHENTICATED
-                  ? "navBar__container--navItem2"
-                  : "navBar__container--navMenu2--hide"
+                  ? 'navBar__container--navItem2'
+                  : 'navBar__container--navMenu2--hide'
               }
             >
               <Link

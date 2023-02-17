@@ -1,5 +1,5 @@
-import React from "react";
-import "../assets/styles/PrimaryButton.css";
+import React from 'react';
+import '../assets/styles/PrimaryButton.css';
 
 function PrimaryButton({ children, color, id }) {
   return (

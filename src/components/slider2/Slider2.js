@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
-import "../../assets/styles/Slider2.css";
-import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from "react-icons/fa";
-import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router";
-import { selectPet } from "../../store/actionCreators";
+import React, { useEffect, useState } from 'react';
+import '../../assets/styles/Slider2.css';
+import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router';
+import { selectPet } from '../../store/actionCreators';
 
 const Slider2 = () => {
   const dispatch = useDispatch();
@@ -46,7 +46,7 @@ const Slider2 = () => {
       {pet.photoUrl.map((photo, index) => {
         return (
           <div
-            className={index === current ? "slider__active2" : "slider__slide2"}
+            className={index === current ? 'slider__active2' : 'slider__slide2'}
             key={index}
           >
             {index === current && (

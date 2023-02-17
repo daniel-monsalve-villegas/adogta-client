@@ -1,7 +1,7 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { Player } from "@lottiefiles/react-lottie-player";
-import Dog4 from "../../assets/images/54287-dogito.json";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Player } from '@lottiefiles/react-lottie-player';
+import Dog4 from '../../assets/images/54287-dogito.json';
 
 const PetFormSuccess = () => {
   return (

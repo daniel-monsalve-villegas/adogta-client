@@ -1,10 +1,10 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { Player } from "@lottiefiles/react-lottie-player";
-import Dog from "../assets/images/23919-error-doggy.json";
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { Player } from '@lottiefiles/react-lottie-player';
+import Dog from '../assets/images/23919-error-doggy.json';
 
-import "../assets/styles/AboutSection.css";
+import '../assets/styles/AboutSection.css';
 
 const AboutSection = () => {
   const activeUser = useSelector((state) => state.user);
@@ -29,20 +29,20 @@ const AboutSection = () => {
               <Link
                 className="aboutContainer__wrapper--btnWrap"
                 to={
-                  activeUser.role === "user"
-                    ? "/foundations"
-                    : activeUser.role === "foundation"
+                  activeUser.role === 'user'
+                    ? '/foundations'
+                    : activeUser.role === 'foundation'
                     ? `/foundations/${activeUser._id}/pets`
-                    : activeUser.role === "admin" &&
+                    : activeUser.role === 'admin' &&
                       `/${activeUser._id}/profile`
                 }
               >
                 <button className="aboutContainer__wrapper--button">
-                  {activeUser.role === "user"
-                    ? "FOUNDATIONS"
-                    : activeUser.role === "foundation"
-                    ? "PETS"
-                    : activeUser.role === "admin" && "PROFILE"}
+                  {activeUser.role === 'user'
+                    ? 'FOUNDATIONS'
+                    : activeUser.role === 'foundation'
+                    ? 'PETS'
+                    : activeUser.role === 'admin' && 'PROFILE'}
                 </button>
               </Link>
             ) : (

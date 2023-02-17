@@ -1,27 +1,27 @@
-import { useEffect } from "react";
-import { useParams, useLocation } from "react-router";
-import { Link } from "react-router-dom";
-import { FaPlusCircle } from "react-icons/fa";
-import { IconContext } from "react-icons";
-import { useSelector, useDispatch } from "react-redux";
-import { listPets, listFoundationRequests } from "../store/actionCreators";
+import { useEffect } from 'react';
+import { useParams, useLocation } from 'react-router';
+import { Link } from 'react-router-dom';
+import { FaPlusCircle } from 'react-icons/fa';
+import { IconContext } from 'react-icons';
+import { useSelector, useDispatch } from 'react-redux';
+import { listPets, listFoundationRequests } from '../store/actionCreators';
 
-import CardList from "../components/CardList";
-import PetCard from "../components/PetCard";
-import PaginationButtons from "../components/PaginationButtons";
-import history from "../history";
+import CardList from '../components/CardList';
+import PetCard from '../components/PetCard';
+import PaginationButtons from '../components/PaginationButtons';
+import history from '../history';
 
-import "../assets/styles/PetListPage.css";
+import '../assets/styles/PetListPage.css';
 
 const PetListPage = () => {
   const { id: foundationId } = useParams();
-  let redirectUrl = "";
+  let redirectUrl = '';
   const dispatch = useDispatch();
-  const { pets, petListInfo } = useSelector(state => state);
-  const { user } = useSelector(state => state);
+  const { pets, petListInfo } = useSelector((state) => state);
+  const { user } = useSelector((state) => state);
   const loading = petListInfo.page ? false : true;
   const initPage =
-    useLocation().search.slice(useLocation().search.indexOf("=") + 1) || 1;
+    useLocation().search.slice(useLocation().search.indexOf('=') + 1) || 1;
 
   //initial loading for pets and requests
   useEffect(() => {
@@ -30,9 +30,9 @@ const PetListPage = () => {
   }, [foundationId, dispatch, initPage]);
 
   //checking the role and the id to show or hide some buttons and select som redirects
-  const isFoundation = user.role === "foundation" && user._id === foundationId;
+  const isFoundation = user.role === 'foundation' && user._id === foundationId;
 
-  isFoundation ? (redirectUrl = "/manage") : (redirectUrl = "/request");
+  isFoundation ? (redirectUrl = '/manage') : (redirectUrl = '/request');
 
   //List buttons
   let nextButton = false;
@@ -65,7 +65,7 @@ const PetListPage = () => {
         <>
           <CardList title="Are you looking for a new friend?">
             {pets.length > 0 ? (
-              pets.map(item => (
+              pets.map((item) => (
                 <PetCard
                   key={item._id}
                   {...item}
@@ -96,13 +96,13 @@ const PetListPage = () => {
       {isFoundation ? (
         <IconContext.Provider
           value={{
-            color: "var(--blue-pigment)",
-            className: "add-pets-container__icon",
+            color: 'var(--blue-pigment)',
+            className: 'add-pets-container__icon',
           }}
         >
           <Link to={`/foundations/${foundationId}/add-pet`}>
             <div className="add-pets-container" data-testid="addPetButton">
-              {" "}
+              {' '}
               <FaPlusCircle />
             </div>
           </Link>

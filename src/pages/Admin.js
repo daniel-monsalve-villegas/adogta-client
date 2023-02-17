@@ -1,23 +1,23 @@
-import "../assets/styles/AdminTable.css";
-import Table from "../components/Table";
-import { useEffect, useState, useCallback } from "react";
-import customAxios from "../axios";
-import Home from "../pages/Home";
-import Swal from "sweetalert2";
-import withReactContent from "sweetalert2-react-content";
+import '../assets/styles/AdminTable.css';
+import Table from '../components/Table';
+import { useEffect, useState, useCallback } from 'react';
+import customAxios from '../axios';
+import Home from '../pages/Home';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 
 const Admin = (isF) => {
   const [arrData, setData] = useState([]);
   const [arrCheck, setArrCheck] = useState([]);
   const [page, setPage] = useState(1);
   const url = isF.isFoundation
-    ? customAxios.defaults.baseURL + "/admin?page="
-    : customAxios.defaults.baseURL + "/admin/users?page=";
+    ? customAxios.defaults.baseURL + '/admin?page='
+    : customAxios.defaults.baseURL + '/admin/users?page=';
   const [disablePrev, setDisablePrev] = useState(true);
   const [disableNext, setDisableNext] = useState(false);
   const [getAll, setGetAll] = useState(true);
-  const [searchText, setSearchText] = useState("");
-  const [typeSearch, setTypeSearch] = useState("email");
+  const [searchText, setSearchText] = useState('');
+  const [typeSearch, setTypeSearch] = useState('email');
   const MySwal = withReactContent(Swal);
 
   function updateSearch(e) {
@@ -51,6 +51,7 @@ const Admin = (isF) => {
         }
       })
       .catch((error) => {
+        console.log(error);
         setData(null);
         setArrCheck(null);
       });
@@ -72,29 +73,28 @@ const Admin = (isF) => {
       }
     }
     if (deleteID.length > 0) {
-      let message = ""
-      if (isF.isFoundation){
-        if (deleteID.length === 1)
-          message = " foundation"
-        else
-          message = " foundations"
-      }
-      else{
-        if (deleteID.length === 1)
-          message = " user"
-        else
-          message = " users"
+      let message = '';
+      if (isF.isFoundation) {
+        if (deleteID.length === 1) message = ' foundation';
+        else message = ' foundations';
+      } else {
+        if (deleteID.length === 1) message = ' user';
+        else message = ' users';
       }
       const answer = await MySwal.fire({
-        title: <strong>Are you sure you want to delete {deleteID.length} {message} ?</strong>,
-        type: "warning",
+        title: (
+          <strong>
+            Are you sure you want to delete {deleteID.length} {message} ?
+          </strong>
+        ),
+        type: 'warning',
         showConfirmButton: true,
-        showCancelButton: true
-      })
-      if (answer.isConfirmed){
+        showCancelButton: true,
+      });
+      if (answer.isConfirmed) {
         customAxios({
           url: url + page,
-          method: "delete",
+          method: 'delete',
           data: { _id: deleteID },
         }).catch((error) => {
           console.log(error);
@@ -114,10 +114,10 @@ const Admin = (isF) => {
   }
 
   function requestSearch(nPage) {
-    if (searchText !== "") {
+    if (searchText !== '') {
       customAxios({
-        url: customAxios.defaults.baseURL + "/adminSearch?page=" + nPage,
-        method: "post",
+        url: customAxios.defaults.baseURL + '/adminSearch?page=' + nPage,
+        method: 'post',
         data: {
           isUser: !isF.isFoundation,
           field: typeSearch,
@@ -150,15 +150,15 @@ const Admin = (isF) => {
       address: user.address,
       phone: user.phoneNumber,
       photo: user.photoUrl,
-      check: "check",
+      check: 'check',
     }));
   }
 
   function backHome() {
-    setDisableNext(false)
+    setDisableNext(false);
     setNewData(url + 1, true);
     setGetAll(true);
-    setSearchText("");
+    setSearchText('');
   }
 
   function handleKeypress(e) {
@@ -168,12 +168,12 @@ const Admin = (isF) => {
   }
 
   const columns = [
-    { Header: "Name", accessor: "name" },
-    { Header: "Email", accessor: "email" },
-    { Header: "Address", accessor: "address" },
-    { Header: "Phone", accessor: "phone" },
-    { Header: "Photo", accessor: "photo" },
-    { Header: "Delete", accessor: "check" },
+    { Header: 'Name', accessor: 'name' },
+    { Header: 'Email', accessor: 'email' },
+    { Header: 'Address', accessor: 'address' },
+    { Header: 'Phone', accessor: 'phone' },
+    { Header: 'Photo', accessor: 'photo' },
+    { Header: 'Delete', accessor: 'check' },
   ];
   useEffect(() => {
     setDisableNext(false);
@@ -213,7 +213,7 @@ const Admin = (isF) => {
           value="Search"
           className="AdminTable__bottomButtons"
           onClick={() => requestSearch(page)}
-          onKeyPress={() => handleKeypress()}
+          onKeyDown={() => handleKeypress()}
         />
         <input
           type="submit"

@@ -1,20 +1,20 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-import CardModal from "./CardModal";
+import CardModal from './CardModal';
 
-import "../assets/styles/AdoptionRequest.css";
+import '../assets/styles/AdoptionRequest.css';
 
 const AdoptionRequest = ({ request, handleReject, handleApprove }) => {
-  let classStatus = "";
+  let classStatus = '';
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const handleOpenModal = () => {
     setModalIsOpen(!modalIsOpen);
   };
 
-  request.responseStatus === "approved" && (classStatus = "status-green");
+  request.responseStatus === 'approved' && (classStatus = 'status-green');
 
-  request.responseStatus === "rejected" && (classStatus = "status-red");
+  request.responseStatus === 'rejected' && (classStatus = 'status-red');
 
   return (
     <>
@@ -27,7 +27,7 @@ const AdoptionRequest = ({ request, handleReject, handleApprove }) => {
         <div className="request-container__text">{request.description}</div>
         <div className="request-container__lower-text">
           <p>
-            STATUS:{" "}
+            STATUS:{' '}
             <span className={classStatus}>{request.responseStatus}</span>
           </p>
           {handleApprove && (

@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from "react";
-import { FaUserCircle } from "react-icons/fa";
-import { useDispatch, useSelector } from "react-redux";
-import "../assets/styles/UserProfile.css";
-import { PrimaryButton } from "../components/PrimaryButton";
-import { listUserRequests, updateUserProfile } from "../store/actionCreators";
-import AdoptionRequest from "../components/AdoptionRequest";
+import React, { useState, useEffect } from 'react';
+import { FaUserCircle } from 'react-icons/fa';
+import { useDispatch, useSelector } from 'react-redux';
+import '../assets/styles/UserProfile.css';
+import { PrimaryButton } from '../components/PrimaryButton';
+import { listUserRequests, updateUserProfile } from '../store/actionCreators';
+import AdoptionRequest from '../components/AdoptionRequest';
 
 function Profile() {
   const { name, email, address, phoneNumber, _id, role, photoUrl } =
-    useSelector(state => state.user);
+    useSelector((state) => state.user);
   const dispatch = useDispatch();
 
   const [updateProfile, setUpdateProfile] = useState({
@@ -26,39 +26,39 @@ function Profile() {
     dispatch(listUserRequests(_id));
   }, [_id, dispatch]);
 
-  const requests = useSelector(state => state.userRequests) || [];
+  const requests = useSelector((state) => state.userRequests) || [];
 
   const cleanup = () => {
     URL.revokeObjectURL(updateProfile);
   };
 
-  const setImage = newImage => {
+  const setImage = (newImage) => {
     if (updateProfile) {
       cleanup();
     }
-    setUpdateProfile(prevState => ({
+    setUpdateProfile((prevState) => ({
       ...prevState,
       photoUrl: URL.createObjectURL(newImage),
       imageFile: newImage,
     }));
   };
 
-  const handlePhoto = event => {
+  const handlePhoto = (event) => {
     const newImage = event.target.files[0];
     if (newImage) {
       setImage(newImage);
     }
   };
 
-  const onChange = event => {
+  const onChange = (event) => {
     event.preventDefault();
-    setUpdateProfile(prevState => ({
+    setUpdateProfile((prevState) => ({
       ...prevState,
       [event.target.name]: event.target.value,
     }));
   };
 
-  const handleSubmit = event => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(updateUserProfile(updateProfile));
   };
@@ -102,7 +102,7 @@ function Profile() {
             id="name"
             type="text"
             name="name"
-            placeholder={name || "Name"}
+            placeholder={name || 'Name'}
             className="userProfile__container--inputs"
             onChange={onChange}
             required={name ? true : false}
@@ -122,7 +122,7 @@ function Profile() {
             id="address"
             type="text"
             name="address"
-            placeholder={address || "Address"}
+            placeholder={address || 'Address'}
             className="userProfile__container--inputs"
             onChange={onChange}
             required={address ? true : false}
@@ -133,7 +133,7 @@ function Profile() {
             id="phoneNumber"
             type="number"
             name="phoneNumber"
-            placeholder={phoneNumber || "Phone Number"}
+            placeholder={phoneNumber || 'Phone Number'}
             className="userProfile__container--inputs"
             onChange={onChange}
             required={phoneNumber ? true : false}
@@ -141,8 +141,8 @@ function Profile() {
             data-testid="phoneNumber"
           />
           <PrimaryButton
-            children={"Update profile"}
-            color={"primaryButton updateUser"}
+            children={'Update profile'}
+            color={'primaryButton updateUser'}
           />
         </form>
       </div>
@@ -150,7 +150,7 @@ function Profile() {
         <>
           <h2 className="request-title">Adoption Requests</h2>
           <section className="requests-list">
-            {requests.map(req => (
+            {requests.map((req) => (
               <AdoptionRequest
                 key={req._id}
                 request={req}

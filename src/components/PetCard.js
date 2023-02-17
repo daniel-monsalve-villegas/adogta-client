@@ -1,16 +1,16 @@
-import { useState } from "react";
-import { withRouter } from "react-router-dom";
-import { FaMinus } from "react-icons/fa";
-import { IconContext } from "react-icons";
-import { deletePet } from "../store/actionCreators";
-import { useDispatch, useSelector } from "react-redux";
+import { useState } from 'react';
+import { withRouter } from 'react-router-dom';
+import { FaMinus } from 'react-icons/fa';
+import { IconContext } from 'react-icons';
+import { deletePet } from '../store/actionCreators';
+import { useDispatch, useSelector } from 'react-redux';
 
-import CardImage from "./CardImage";
-import CardModal from "./CardModal";
+import CardImage from './CardImage';
+import CardModal from './CardModal';
 
-import "../assets/styles/PetCard.css";
+import '../assets/styles/PetCard.css';
 
-const PetCard = props => {
+const PetCard = (props) => {
   const {
     _id,
     name,
@@ -23,8 +23,8 @@ const PetCard = props => {
   } = props;
   const dispatch = useDispatch();
 
-  const requests = useSelector(state => state.foundationRequests).filter(
-    item => item.petId._id === _id
+  const requests = useSelector((state) => state.foundationRequests).filter(
+    (item) => item.petId._id === _id
   );
 
   const [isOpen, setIsOpen] = useState(false);
@@ -43,7 +43,7 @@ const PetCard = props => {
     !adopted && props.history.push(`/pets/${_id}${redirectUrl}`);
   };
 
-  const handleDeletePet = async _id => {
+  const handleDeletePet = async (_id) => {
     dispatch(deletePet(_id));
   };
 
@@ -78,8 +78,8 @@ const PetCard = props => {
           {isFoundation && (
             <IconContext.Provider
               value={{
-                color: "red",
-                className: "delete-pets-container__icon",
+                color: 'red',
+                className: 'delete-pets-container__icon',
               }}
             >
               <div
@@ -87,7 +87,7 @@ const PetCard = props => {
                 onClick={handleOpenModal}
                 data-testid="deletePetButton"
               >
-                {" "}
+                {' '}
                 <FaMinus />
               </div>
             </IconContext.Provider>

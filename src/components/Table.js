@@ -1,4 +1,4 @@
-import { useTable } from "react-table";
+import { useTable } from 'react-table';
 
 function Table({ columns, data, state, setState }) {
   // Use the state and functions returned from useTable to build your UI
@@ -23,7 +23,7 @@ function Table({ columns, data, state, setState }) {
           <tr {...headerGroup.getHeaderGroupProps()}>
             {headerGroup.headers.map((column) => (
               <th className="AdminTable__th" {...column.getHeaderProps()}>
-                {column.render("Header")}
+                {column.render('Header')}
               </th>
             ))}
           </tr>
@@ -36,7 +36,7 @@ function Table({ columns, data, state, setState }) {
             <tr {...row.getRowProps()}>
               {row.cells.map((cell) => {
                 const str = String(cell.value);
-                if (str.startsWith("http")) {
+                if (str.startsWith('http')) {
                   return (
                     <td {...cell.getCellProps()} className="AdminTable__td">
                       <img
@@ -47,7 +47,7 @@ function Table({ columns, data, state, setState }) {
                     </td>
                   );
                 }
-                if (str.startsWith("check")) {
+                if (str.startsWith('check')) {
                   return (
                     <td {...cell.getCellProps()} className="AdminTable__td">
                       <input
@@ -62,7 +62,7 @@ function Table({ columns, data, state, setState }) {
                 }
                 return (
                   <td {...cell.getCellProps()} className="AdminTable__td">
-                    {cell.render("Cell")}
+                    {cell.render('Cell')}
                   </td>
                 );
               })}

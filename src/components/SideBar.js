@@ -1,13 +1,13 @@
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { Link as LinkScroll } from "react-scroll";
-import { animateScroll as ScrollToTop } from "react-scroll";
-import "../assets/styles/SideBar.css";
-import { FaTimes } from "react-icons/fa";
-import { useDispatch, useSelector } from "react-redux";
-import { logOut } from "../store/actionCreators";
-import { AUTHENTICATED, NOT_AUTHENTICATED } from "../store/actions";
-import history from "../history";
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { Link as LinkScroll } from 'react-scroll';
+import { animateScroll as ScrollToTop } from 'react-scroll';
+import '../assets/styles/SideBar.css';
+import { FaTimes } from 'react-icons/fa';
+import { useDispatch, useSelector } from 'react-redux';
+import { logOut } from '../store/actionCreators';
+import { AUTHENTICATED, NOT_AUTHENTICATED } from '../store/actions';
+import history from '../history';
 
 function SideBar({ isOpen, toggle }) {
   const dispatch = useDispatch();
@@ -34,8 +34,9 @@ function SideBar({ isOpen, toggle }) {
 
   return (
     <aside
-      className={`sideBar__container 
-      ${isOpen ? "sideBar__container--show" : "sideBar__container--hide"}`}
+      className={`sideBar__container ${
+        isOpen ? 'sideBar__container--show' : 'sideBar__container--hide'
+      }`}
       onClick={toggle}
       data-testid="sideBar"
     >
@@ -45,7 +46,7 @@ function SideBar({ isOpen, toggle }) {
         </div>
       </div>
       <div className="sideBar__container--wrapper">
-        {location === "/" && (
+        {location === '/' && (
           <ul className="sideBar__container--menu">
             <li
               className="sideBar__container--link"
@@ -90,7 +91,7 @@ function SideBar({ isOpen, toggle }) {
           )}
         </div>
         <div className="sideBar__container--btnWrap">
-          {status === AUTHENTICATED && role === "user" ? (
+          {status === AUTHENTICATED && role === 'user' ? (
             <Link
               className="sideBar__container--route"
               to="/foundations"
@@ -100,7 +101,7 @@ function SideBar({ isOpen, toggle }) {
             </Link>
           ) : (
             status === AUTHENTICATED &&
-            role === "foundation" && (
+            role === 'foundation' && (
               <Link
                 className="sideBar__container--route"
                 to={`/foundations/${_id}/pets`}
@@ -110,7 +111,7 @@ function SideBar({ isOpen, toggle }) {
               </Link>
             )
           )}
-          {status === AUTHENTICATED && role === "admin" && (
+          {status === AUTHENTICATED && role === 'admin' && (
             <Link className="sideBar__container--route" to="/admin/users">
               USERS
             </Link>
@@ -130,7 +131,7 @@ function SideBar({ isOpen, toggle }) {
         </div>
 
         <div className="sideBar__container--btnWrap">
-          {status === AUTHENTICATED && role === "admin" ? (
+          {status === AUTHENTICATED && role === 'admin' ? (
             <Link className="sideBar__container--route" to="/admin">
               FOUNDATIONS
             </Link>

@@ -1,4 +1,4 @@
-import "../assets/styles/PaginationButtons.css";
+import '../assets/styles/PaginationButtons.css';
 
 const PaginationButtons = ({
   previousButton,

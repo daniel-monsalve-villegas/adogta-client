@@ -1,7 +1,7 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { Player } from "@lottiefiles/react-lottie-player";
-import beWare from "../../assets/images/29407-warning-icon.json";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Player } from '@lottiefiles/react-lottie-player';
+import beWare from '../../assets/images/29407-warning-icon.json';
 
 function PetFormRepeat() {
   return (

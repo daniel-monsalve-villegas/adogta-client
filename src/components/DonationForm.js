@@ -1,21 +1,21 @@
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
-import { useParams } from "react-router";
-import validateDonation from "./ValidateDonation";
-import Spinner from "../components/Spinner";
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { useParams } from 'react-router';
+import validateDonation from './ValidateDonation';
+import Spinner from '../components/Spinner';
 
 const DonationForm = ({ submitForm, loading }) => {
   const { id: foundationId } = useParams();
   const { user, foundation } = useSelector((state) => state);
 
   const [values, setValues] = useState({
-    idNumber: "",
-    cardNumber: "",
-    expYear: "",
-    expMonth: "",
-    cvc: "",
-    amount: "",
-    dues: "",
+    idNumber: '',
+    cardNumber: '',
+    expYear: '',
+    expMonth: '',
+    cvc: '',
+    amount: '',
+    dues: '',
   });
   const [errors, setErrors] = useState({});
 
@@ -56,7 +56,7 @@ const DonationForm = ({ submitForm, loading }) => {
                 type="text"
                 name="idNumber"
                 className="petform__rightContainerForm--input"
-                value={values.IdNumber}
+                value={values.idNumber}
                 onChange={handleChange}
                 data-testid="address"
               />

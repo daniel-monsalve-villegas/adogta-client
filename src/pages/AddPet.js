@@ -1,10 +1,10 @@
-import React, { useRef, useState, useEffect } from "react";
-import { FaCloudUploadAlt } from "react-icons/fa";
-import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router";
-import "../assets/styles/AddPet.css";
-import { PrimaryButton } from "../components/PrimaryButton";
-import { addPets, resetError } from "../store/actionCreators";
+import React, { useRef, useState, useEffect } from 'react';
+import { FaCloudUploadAlt } from 'react-icons/fa';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router';
+import '../assets/styles/AddPet.css';
+import { PrimaryButton } from '../components/PrimaryButton';
+import { addPets, resetError } from '../store/actionCreators';
 
 function AddPet() {
   const { id: foundationId } = useParams();
@@ -17,9 +17,9 @@ function AddPet() {
   }, [dispatch]);
 
   const [pet, setPet] = useState({
-    petName: "",
-    petAge: "",
-    petDescription: "",
+    petName: '',
+    petAge: '',
+    petDescription: '',
     photoUrl: [],
     foundationId: foundationId,
     error: {
@@ -43,12 +43,12 @@ function AddPet() {
     event.stopPropagation();
     if (event.dataTransfer.files) {
       const fileArray = Array.from(event.dataTransfer.files).map((file) =>
-        URL.createObjectURL(file),
+        URL.createObjectURL(file)
       );
 
       setSelectedImages((prevImages) => prevImages.concat(fileArray));
       Array.from(event.dataTransfer.files).map((file) =>
-        URL.revokeObjectURL(file),
+        URL.revokeObjectURL(file)
       );
     }
 
@@ -63,7 +63,7 @@ function AddPet() {
   const handleInputChange = (event) => {
     if (event.target.files) {
       const fileArray = Array.from(event.target.files).map((file) =>
-        URL.createObjectURL(file),
+        URL.createObjectURL(file)
       );
 
       setSelectedImages((prevImages) => prevImages.concat(fileArray));
@@ -182,8 +182,8 @@ function AddPet() {
             )}
             <div className="addButton">
               <PrimaryButton
-                children={"Add Pet"}
-                color={"primaryButton addPets"}
+                children={'Add Pet'}
+                color={'primaryButton addPets'}
               />
             </div>
           </div>

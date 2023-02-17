@@ -1,9 +1,9 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { Player } from "@lottiefiles/react-lottie-player";
-import Dog2 from "../assets/images/lf30_editor_wo8nkm2h.json";
-import "../assets/styles/HelpUs.css";
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { Player } from '@lottiefiles/react-lottie-player';
+import Dog2 from '../assets/images/lf30_editor_wo8nkm2h.json';
+import '../assets/styles/HelpUs.css';
 
 const HelpUsSection = () => {
   const activeUser = useSelector((state) => state.user);
@@ -30,15 +30,15 @@ const HelpUsSection = () => {
               <Link
                 className="joinUsContainer__wrapper--btnWrap"
                 to={
-                  activeUser.role === "foundation"
+                  activeUser.role === 'foundation'
                     ? `/foundations/${activeUser._id}/pets`
-                    : "/foundations"
+                    : '/foundations'
                 }
               >
                 <button className="joinUsContainer__wrapper--button">
-                  {activeUser.role === "user" || activeUser.role === "admin"
-                    ? "DONATE"
-                    : "PETS"}
+                  {activeUser.role === 'user' || activeUser.role === 'admin'
+                    ? 'DONATE'
+                    : 'PETS'}
                 </button>
               </Link>
             ) : (

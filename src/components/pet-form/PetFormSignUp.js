@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import usePetForm from "./usePetForm";
-import validateInfo from "./validateInfo";
+import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import usePetForm from './usePetForm';
+import validateInfo from './validateInfo';
 
 const PetFormSignUp = ({ submitForm }) => {
   const { handleChange, values, handleSubmit, errors } = usePetForm(
@@ -11,8 +11,8 @@ const PetFormSignUp = ({ submitForm }) => {
 
   const statePet = useSelector((state) => state.selectedPet);
   const [pet, setPet] = useState({
-    name: "",
-    photoUrl: "",
+    name: '',
+    photoUrl: '',
   });
 
   useEffect(() => {

@@ -1,19 +1,19 @@
-import React from "react";
-import "../assets/styles/Footer.css";
+import React from 'react';
+import '../assets/styles/Footer.css';
 import {
   FaFacebook,
   FaTwitterSquare,
   FaInstagram,
   FaLinkedin,
-} from "react-icons/fa";
-import { Link } from "react-router-dom";
-import { Link as LinkScroll } from "react-scroll";
-import { animateScroll as ScrollToTop } from "react-scroll";
-import { useSelector } from "react-redux";
-import { AUTHENTICATED, NOT_AUTHENTICATED } from "../store/actions";
-import { useState } from "react";
-import history from "../history";
-import { useEffect } from "react";
+} from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import { Link as LinkScroll } from 'react-scroll';
+import { animateScroll as ScrollToTop } from 'react-scroll';
+import { useSelector } from 'react-redux';
+import { AUTHENTICATED, NOT_AUTHENTICATED } from '../store/actions';
+import { useState } from 'react';
+import history from '../history';
+import { useEffect } from 'react';
 
 const Footer = () => {
   const status = useSelector((state) => state.status);
@@ -87,12 +87,12 @@ const Footer = () => {
           <ul>
             <li className="footer__wrapper--quick-items">
               {status === AUTHENTICATED ? (
-                role === "user" ? (
+                role === 'user' ? (
                   <Link className="footer__wrapper--navLinks" to="/foundations">
                     FOUNDATIONS
                   </Link>
                 ) : (
-                  role === "foundation" && (
+                  role === 'foundation' && (
                     <Link
                       className="navBar__container--navLinks2"
                       to={`/foundations/${_id}/pets`}
@@ -103,7 +103,7 @@ const Footer = () => {
                 )
               ) : (
                 status === NOT_AUTHENTICATED &&
-                location === "/" && (
+                location === '/' && (
                   <div
                     className="footer__wrapper--navLinks"
                     onClick={() => ScrollToTop.scrollToTop()}
@@ -112,14 +112,14 @@ const Footer = () => {
                   </div>
                 )
               )}
-              {status === AUTHENTICATED && role === "admin" && (
+              {status === AUTHENTICATED && role === 'admin' && (
                 <Link className="footer__wrapper--navLinks" to="/">
                   HOME
                 </Link>
               )}
             </li>
             <li className="footer__wrapper--quick-items">
-              {status === NOT_AUTHENTICATED && location === "/" ? (
+              {status === NOT_AUTHENTICATED && location === '/' ? (
                 <LinkScroll
                   className="footer__wrapper--navLinks"
                   to="info"
@@ -130,7 +130,7 @@ const Footer = () => {
                 </LinkScroll>
               ) : (
                 status === NOT_AUTHENTICATED &&
-                location !== "/" && (
+                location !== '/' && (
                   <Link className="footer__wrapper--navLinks" to="/">
                     HOME
                   </Link>
@@ -147,7 +147,7 @@ const Footer = () => {
                 </Link>
               ) : (
                 status === NOT_AUTHENTICATED &&
-                location === "/" && (
+                location === '/' && (
                   <LinkScroll
                     className="footer__wrapper--navLinks"
                     to="helpUs"

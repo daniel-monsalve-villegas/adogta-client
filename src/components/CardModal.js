@@ -1,4 +1,4 @@
-import "../assets/styles/CardModal.css";
+import '../assets/styles/CardModal.css';
 
 const CardModal = ({ handleOpenModal, id, handleConfirm, children }) => {
   return (

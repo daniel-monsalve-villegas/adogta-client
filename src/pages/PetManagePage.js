@@ -1,10 +1,10 @@
-import { useEffect } from "react";
-import { useParams } from "react-router";
-import AdoptionRequest from "../components/AdoptionRequest";
-import { useSelector, useDispatch } from "react-redux";
-import { selectPet, updateRequest, bulkReject } from "../store/actionCreators";
+import { useEffect } from 'react';
+import { useParams } from 'react-router';
+import AdoptionRequest from '../components/AdoptionRequest';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectPet, updateRequest, bulkReject } from '../store/actionCreators';
 
-import "../assets/styles/PetManagePage.css";
+import '../assets/styles/PetManagePage.css';
 
 const PetManagePage = () => {
   const { id: petId } = useParams();
@@ -20,11 +20,11 @@ const PetManagePage = () => {
 
   // Updating a state
   const handleReject = (id) => () => {
-    dispatch(updateRequest(petId, id, "rejected"));
+    dispatch(updateRequest(petId, id, 'rejected'));
   };
 
   const handleApprove = (id) => {
-    dispatch(updateRequest(petId, id, "approved"));
+    dispatch(updateRequest(petId, id, 'approved'));
     dispatch(bulkReject(petId, id));
   };
 
